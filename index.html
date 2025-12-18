@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energieffektiv Fremtid 2026 - Hold av datoen</title>
+
+  <!-- Barlow Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./css/output.css">
+</head>
+<body>
+
+  <!-- Sticky SINTEF Logo -->
+  <div class="fixed top-6 right-6 z-50 bg-eef-base/60 backdrop-blur-sm px-4 py-3 rounded-lg">
+    <img src="./Powered-by-SINTEF-hvit.svg" alt="Powered by SINTEF" class="w-32 md:w-40 h-auto opacity-90 hover:opacity-100 transition-opacity">
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full overflow-hidden">
+    <!-- Canvas Background Animation -->
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+
+    <!-- Content Overlay -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full px-4">
+      <div class="text-center space-y-8 max-w-4xl">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold italic animate-fade-in">
+          Energieffektiv Fremtid
+        </h1>
+
+        <p class="text-base md:text-lg text-white/60 -mt-4">
+          SINTEF-konferansen for smartere energibruk
+        </p>
+
+        <!-- Logo -->
+        <div class="flex justify-center">
+          <img src="./EEF-logo-vektor.svg" alt="Energieffektiv Fremtid" style="width: 150px; height: auto;">
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-lg md:text-xl uppercase tracking-wide text-white/70">
+            Hold av datoen
+          </p>
+          <div class="text-5xl md:text-6xl font-bold animate-slide-up">
+            21. mai 2026
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-12 animate-bounce">
+        <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery-section" class="py-16 md:py-24 lg:py-32 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-normal mb-12 text-center">
+        Fra Energieffektiv Fremtid 2024
+      </h2>
+
+      <!-- Masonry Grid -->
+      <div id="gallery" class="columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-6">
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="0">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--11.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="1">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--15.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="2">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--17.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="3">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--3.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="4">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--5.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="5">
+          <img
+            src="images/gallery/Del 1 - Energieffektiv Fremtid--7.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="6">
+          <img
+            src="images/gallery/Del 2 - Energieffektiv Fremtid--2.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="7">
+          <img
+            src="images/gallery/Del 2 - Energieffektiv Fremtid--5.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="8">
+          <img
+            src="images/gallery/Del 2 - Energieffektiv Fremtid--6.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="9">
+          <img
+            src="images/gallery/Del 3 - Energieffektiv Fremtid--5.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="10">
+          <img
+            src="images/gallery/Del 3 - Energieffektiv Fremtid--7.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="11">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid--11.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="12">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid--14.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="13">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid--2.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="14">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid--8.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="15">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid-05032.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="16">
+          <img
+            src="images/gallery/Del 4 - Energieffektiv Fremtid-05041.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="17">
+          <img
+            src="images/gallery/Energieffektiv Fremtid--13.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="18">
+          <img
+            src="images/gallery/Energieffektiv Fremtid--3.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="19">
+          <img
+            src="images/gallery/Energieffektiv Fremtid--4 (1).jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="20">
+          <img
+            src="images/gallery/Energieffektiv Fremtid--6.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="21">
+          <img
+            src="images/gallery/Energieffektiv Fremtid--7.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="22">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="23">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03909-2.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="24">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03926.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="25">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03931.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="26">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03932.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="27">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03936.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="28">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-03983.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="29">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-04019.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="30">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-04326.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="31">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-04356.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="32">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-04527.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="33">
+          <img
+            src="images/gallery/Energieffektiv Fremtid-04544.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="34">
+          <img
+            src="images/gallery/Konferansesal - Energieffektiv Fremtid.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="35">
+          <img
+            src="images/gallery/Panel 1 - Energieffektiv Fremtid--2.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="36">
+          <img
+            src="images/gallery/Panel 1 - Energieffektiv Fremtid-04266.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="37">
+          <img
+            src="images/gallery/Panel 1 - Energieffektiv Fremtid-04306.jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="38">
+          <img
+            src="images/gallery/Panel 2 - Energieffektiv Fremtid- (1).jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="39">
+          <img
+            src="images/gallery/Panel 3 - Energieffektiv Fremtid--3 (1).jpg"
+            alt="Energieffektiv Fremtid 2024"
+            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="py-16 md:py-24 lg:py-32" style="background-color: #FCFCFC;">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-normal mb-8 text-eef-base">
+        Sett av datoen – bli påmint
+      </h2>
+
+      <p class="text-lg md:text-xl mb-4 text-eef-base/80 max-w-2xl mx-auto leading-relaxed">
+        Energieffektiv Fremtid er den nye møteplassen for å samle kunnskapsmiljøer, industri og politikk for å drive frem energieffektivisering i Norge.
+      </p>
+
+      <p class="text-lg md:text-xl mb-6 text-eef-base/80 max-w-2xl mx-auto leading-relaxed">
+        Som en non-profit konferanse er målet å dele innsikt, bygge relasjoner og finne løsninger som skaper varig endring.
+      </p>
+
+      <p class="text-base md:text-lg mb-12 text-eef-base/60">
+        Hold av datoen allerede nå – mer informasjon kommer snart
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button
+          id="download-ical"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-eef-blue text-white rounded-full text-lg md:text-xl font-medium hover:bg-eef-purple transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          Legg til i kalender
+        </button>
+
+        <a
+          href="https://nyhetsbrev.sintef.no/p/s/MjMxNjc6MjhmZDBjODQtOTc1ZS00YWJiLThjOTQtNDY3MTg4MjRjZWVk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-white text-eef-blue border-2 border-eef-blue rounded-full text-lg md:text-xl font-medium hover:bg-eef-blue hover:text-white transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Bli varslet på e-post
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal (Hidden by default) -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-sm">
+    <!-- Close Button -->
+    <button id="lightbox-close" class="absolute top-4 right-4 z-60 text-white/70 hover:text-white text-4xl leading-none p-4">
+      &times;
+    </button>
+
+    <!-- Image Container -->
+    <div class="relative flex items-center justify-center w-full h-full p-8">
+      <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain" />
+    </div>
+
+    <!-- Caption -->
+    <div id="lightbox-caption" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90 text-center max-w-2xl px-4">
+      <!-- Caption text will be inserted here -->
+    </div>
+
+    <!-- Navigation Arrows - Large and visible -->
+    <button id="lightbox-prev" class="absolute left-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-8xl leading-none p-4 hover:scale-110 transition-transform">
+      ‹
+    </button>
+    <button id="lightbox-next" class="absolute right-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-8xl leading-none p-4 hover:scale-110 transition-transform">
+      ›
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="./js/load-footer.js"></script>
+  <script src="./js/hero-animation.js"></script>
+  <script src="./js/lightbox.js"></script>
+  <script src="./js/ical-generator.js"></script>
+</body>
+</html>

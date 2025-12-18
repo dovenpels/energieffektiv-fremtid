@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors from Energieffektiv Fremtid */
+  --color-eef-base: #131313;
+  --color-eef-green: #7ac893;
+  --color-eef-purple: #5835e4;
+  --color-eef-blue: #4b52ff;
+  --color-eef-coral: #FF7A5C;
+  --color-eef-red: #e4586b;
+  --color-eef-yellow: #f2cc55;
+
+  /* Custom Animations */
+  --animate-fade-in: fade-in 1.5s ease-out;
+  --animate-slide-up: slide-up 1s ease-out 0.5s backwards;
+
+  /* Font Family */
+  --font-barlow: Barlow, sans-serif;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-eef-base);
+    color: #ffffff;
+    font-family: var(--font-barlow);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-green-purple {
+    background: linear-gradient(135deg, var(--color-eef-green) 0%, var(--color-eef-purple) 100%);
+  }
+}
