@@ -18,7 +18,7 @@ for img in "${images[@]}"; do
   basename_noext="${filename%.*}"
 
   # Create alt text
-  alt="Energieffektiv Fremtid 2024"
+  alt="Energieffektiv Fremtid 2025"
 
   # WebP paths
   webp_thumb="images/gallery/optimized/webp/${basename_noext}-400.webp"
