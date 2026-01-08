@@ -144,11 +144,18 @@ class SwirlAnimation {
   }
 }
 
-// Initialize animation when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    new SwirlAnimation('hero-canvas');
-  });
-} else {
+// Defer animation initialization until after page load to improve LCP
+function initAnimation() {
   new SwirlAnimation('hero-canvas');
 }
+
+// Wait for page load, then defer until browser is idle
+window.addEventListener('load', () => {
+  // Use requestIdleCallback to defer until browser is idle
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAnimation, { timeout: 2000 });
+  } else {
+    // Fallback for browsers without requestIdleCallback
+    setTimeout(initAnimation, 100);
+  }
+});

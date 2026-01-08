@@ -13,7 +13,6 @@ class Lightbox {
     this.currentIndex = 0;
 
     if (!this.lightbox || this.galleryItems.length === 0) {
-      console.warn('Lightbox elements not found or no gallery items');
       return;
     }
 
@@ -97,10 +96,10 @@ class Lightbox {
 
   open(index) {
     this.currentIndex = index;
-    this.loadImage();
     this.lightbox.classList.remove('hidden');
     this.lightbox.classList.add('flex');
     document.body.style.overflow = 'hidden'; // Prevent body scroll
+    this.loadImage();
   }
 
   close() {
@@ -116,10 +115,44 @@ class Lightbox {
   loadImage() {
     const item = this.galleryItems[this.currentIndex];
     const img = item.querySelector('img');
+    const picture = item.querySelector('picture');
     const caption = item.querySelector('.caption');
 
+    // Determine optimal image size based on viewport
+    const viewportWidth = window.innerWidth;
+    let imageSrc;
+
+    if (picture) {
+      // Get the WebP source element
+      const webpSource = picture.querySelector('source[type="image/webp"]');
+
+      if (webpSource && webpSource.srcset) {
+        // Extract image paths from srcset - normalize whitespace first
+        const srcsetNormalized = webpSource.srcset.replace(/\s+/g, ' ').trim();
+        const srcsetParts = srcsetNormalized.split(',').map(s => s.trim());
+
+        // Choose size based on viewport width
+        if (viewportWidth < 1920) {
+          // Use medium size (1200px) for smaller screens
+          const mediumSrc = srcsetParts.find(s => s.includes('1200'));
+          // Split from the end to handle filenames with spaces
+          imageSrc = mediumSrc ? mediumSrc.substring(0, mediumSrc.lastIndexOf(' ')) : null;
+        } else {
+          // Use large size (2048px) for large screens
+          const largeSrc = srcsetParts.find(s => s.includes('2048'));
+          // Split from the end to handle filenames with spaces
+          imageSrc = largeSrc ? largeSrc.substring(0, largeSrc.lastIndexOf(' ')) : null;
+        }
+      }
+    }
+
+    // Fallback to original JPG if WebP not available
+    if (!imageSrc || imageSrc === '') {
+      imageSrc = img.src;
+    }
+
     // Load image
-    this.lightboxImage.src = img.src;
+    this.lightboxImage.src = imageSrc;
     this.lightboxImage.alt = img.alt;
 
     // Load caption

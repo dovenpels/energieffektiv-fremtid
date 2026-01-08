@@ -54,4 +54,13 @@
   .bg-gradient-green-purple {
     background: linear-gradient(135deg, var(--color-eef-green) 0%, var(--color-eef-purple) 100%);
   }
+
+  /* Aspect ratio utilities for images */
+  .aspect-3-2 {
+    aspect-ratio: 3 / 2;
+  }
+
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
 }

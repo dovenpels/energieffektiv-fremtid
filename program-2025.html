@@ -9,11 +9,11 @@
   <meta name="description" content="Program fra Energieffektiv Fremtid 2025 (22. mai). Se deltakere, foredragsholdere og detaljert program fra konferansen om energieffektivisering i Norge.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="SINTEF">
-  <link rel="canonical" href="https://energieffektivfremtid.no/program-2025.html">
+  <link rel="canonical" href="https://energieffektivfremtid.no/program-2025">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://energieffektivfremtid.no/program-2025.html">
+  <meta property="og:url" content="https://energieffektivfremtid.no/program-2025">
   <meta property="og:title" content="Fjorårets program 2025 - Energieffektiv Fremtid">
   <meta property="og:description" content="Program fra Energieffektiv Fremtid 2025. Se alle deltakere og foredragsholdere fra konferansen.">
   <meta property="og:image" content="https://energieffektivfremtid.no/EEF-logo-vektor.svg">
@@ -21,7 +21,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://energieffektivfremtid.no/program-2025.html">
+  <meta name="twitter:url" content="https://energieffektivfremtid.no/program-2025">
   <meta name="twitter:title" content="Fjorårets program 2025 - Energieffektiv Fremtid">
   <meta name="twitter:description" content="Program fra Energieffektiv Fremtid 2025.">
   <meta name="twitter:image" content="https://energieffektivfremtid.no/EEF-logo-vektor.svg">
@@ -30,17 +30,31 @@
   <link rel="icon" type="image/svg+xml" href="/EEF-logo-vektor.svg">
   <link rel="alternate icon" type="image/svg+xml" href="/EEF-logo-vektor.svg">
 
-  <link rel="stylesheet" href="./css/output.css">
+  <!-- DNS Prefetch and Preconnect for faster font loading -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <!-- Preload critical font weights -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap">
+
+  <!-- Async load all font weights -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800&display=swap">
+  </noscript>
+
+  <!-- Defer non-critical CSS -->
+  <link rel="preload" href="./css/output.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./css/output.css"></noscript>
 </head>
 <body class="bg-eef-base text-white">
 
   <!-- Header -->
   <header class="py-8 px-4">
     <div class="max-w-4xl mx-auto">
-      <a href="./index.html" class="inline-flex items-center gap-2 text-eef-green hover:text-eef-purple transition-colors">
+      <a href="/" class="inline-flex items-center gap-2 text-eef-green hover:text-eef-purple transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
         </svg>
@@ -58,7 +72,7 @@
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold italic mb-4">
           Fjorårets program 2025
         </h1>
-        <p class="text-lg md:text-xl text-white/70">
+        <p class="text-lg md:text-xl text-white/80">
           Energieffektiv Fremtid - 22. mai 2025
         </p>
       </div>
@@ -77,19 +91,19 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg text-white/80">
               <li class="flex flex-col">
                 <span class="font-medium text-white">Alexandra Bech Gjørv</span>
-                <span class="text-sm text-white/60">Konsernsjef, SINTEF</span>
+                <span class="text-sm text-white/80">Konsernsjef, SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Monica Rolfsen</span>
-                <span class="text-sm text-white/60">Prorektor, NTNU</span>
+                <span class="text-sm text-white/80">Prorektor, NTNU</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Petter Røkke</span>
-                <span class="text-sm text-white/60">Forskningssjef, SINTEF</span>
+                <span class="text-sm text-white/80">Forskningssjef, SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Arve Solheim</span>
-                <span class="text-sm text-white/60">Områdeleder, Enova</span>
+                <span class="text-sm text-white/80">Områdeleder, Enova</span>
               </li>
             </ul>
           </section>
@@ -100,31 +114,31 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg text-white/80">
               <li class="flex flex-col">
                 <span class="font-medium text-white">Stefania Gardardsdottir</span>
-                <span class="text-sm text-white/60">LowEmission / SINTEF</span>
+                <span class="text-sm text-white/80">LowEmission / SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Petter Røkke</span>
-                <span class="text-sm text-white/60">SINTEF</span>
+                <span class="text-sm text-white/80">SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Sverre Foslie</span>
-                <span class="text-sm text-white/60">SINTEF</span>
+                <span class="text-sm text-white/80">SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Ann Kristin Kvellheim</span>
-                <span class="text-sm text-white/60">SINTEF</span>
+                <span class="text-sm text-white/80">SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Alexis Sevault</span>
-                <span class="text-sm text-white/60">Cartesian</span>
+                <span class="text-sm text-white/80">Cartesian</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Hanne Kauko</span>
-                <span class="text-sm text-white/60">Seniorforsker, SINTEF</span>
+                <span class="text-sm text-white/80">Seniorforsker, SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Aksel Faanes Persson</span>
-                <span class="text-sm text-white/60">Programleder</span>
+                <span class="text-sm text-white/80">Programleder</span>
               </li>
             </ul>
           </section>
@@ -135,55 +149,55 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg text-white/80">
               <li class="flex flex-col">
                 <span class="font-medium text-white">Harald Solberg</span>
-                <span class="text-sm text-white/60">Norsk Industri</span>
+                <span class="text-sm text-white/80">Norsk Industri</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Bård Standal</span>
-                <span class="text-sm text-white/60">Fornybar Norge</span>
+                <span class="text-sm text-white/80">Fornybar Norge</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Asgeir Tomasgard</span>
-                <span class="text-sm text-white/60">NTNU</span>
+                <span class="text-sm text-white/80">NTNU</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Benedicte Solaas</span>
-                <span class="text-sm text-white/60">Offshore Norge</span>
+                <span class="text-sm text-white/80">Offshore Norge</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Bjørn Ugedal</span>
-                <span class="text-sm text-white/60">Mo Industripark</span>
+                <span class="text-sm text-white/80">Mo Industripark</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Manus Pandey</span>
-                <span class="text-sm text-white/60">Statkraft</span>
+                <span class="text-sm text-white/80">Statkraft</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Maren Aschehug Esmark</span>
-                <span class="text-sm text-white/60">NVE</span>
+                <span class="text-sm text-white/80">NVE</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Linn Helland</span>
-                <span class="text-sm text-white/60">Hydros Aluminiumsverk</span>
+                <span class="text-sm text-white/80">Hydros Aluminiumsverk</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Erik Stenback</span>
-                <span class="text-sm text-white/60">ELKEM</span>
+                <span class="text-sm text-white/80">ELKEM</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Ellen Myrvold</span>
-                <span class="text-sm text-white/60">Alcoa</span>
+                <span class="text-sm text-white/80">Alcoa</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Vincent Fleischer</span>
-                <span class="text-sm text-white/60">SINTEF</span>
+                <span class="text-sm text-white/80">SINTEF</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Mali Hole Skogen</span>
-                <span class="text-sm text-white/60">GoforIT / IKT Norge</span>
+                <span class="text-sm text-white/80">GoforIT / IKT Norge</span>
               </li>
               <li class="flex flex-col">
                 <span class="font-medium text-white">Camila Medina</span>
-                <span class="text-sm text-white/60">Schneider Electric</span>
+                <span class="text-sm text-white/80">Schneider Electric</span>
               </li>
             </ul>
           </section>
