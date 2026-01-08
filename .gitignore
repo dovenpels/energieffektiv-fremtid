@@ -24,6 +24,10 @@ Temporary Items
 
 # Tailwind CLI
 tailwindcss
+tailwindcss-windows-x64.exe
+
+# Claude Code
+.claude/
 
 # Node modules (if you ever add npm)
 node_modules/

@@ -16,7 +16,7 @@
 <body>
 
   <!-- Sticky SINTEF Logo -->
-  <div class="fixed top-6 right-6 z-50 bg-eef-base/60 backdrop-blur-sm px-4 py-3 rounded-lg">
+  <div id="sintef-logo" class="fixed top-6 right-6 z-50 bg-eef-base/60 backdrop-blur-sm px-4 py-3 rounded-lg transition-opacity duration-300">
     <img src="./Powered-by-SINTEF-hvit.svg" alt="Powered by SINTEF" class="w-32 md:w-40 h-auto opacity-90 hover:opacity-100 transition-opacity">
   </div>
 
@@ -27,7 +27,7 @@
 
     <!-- Content Overlay -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full px-4">
-      <div class="text-center space-y-8 max-w-4xl">
+      <div class="text-center space-y-8 max-w-4xl bg-eef-base/60 backdrop-blur-sm px-8 md:px-12 py-12 md:py-16 rounded-3xl">
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold italic animate-fade-in">
           Energieffektiv Fremtid
         </h1>
@@ -377,15 +377,6 @@
 
         <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="34">
           <img
-            src="images/gallery/Konferansesal - Energieffektiv Fremtid.jpg"
-            alt="Energieffektiv Fremtid 2024"
-            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="gallery-item group cursor-pointer overflow-hidden rounded-lg mb-4 md:mb-6 break-inside-avoid" data-index="35">
-          <img
             src="images/gallery/Panel 1 - Energieffektiv Fremtid--2.jpg"
             alt="Energieffektiv Fremtid 2024"
             class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
@@ -428,6 +419,19 @@
             loading="lazy"
           />
         </div>
+      </div>
+
+      <!-- Link to 2025 Program -->
+      <div class="mt-16 md:mt-20 lg:mt-24 text-center">
+        <a
+          href="./program-2025.html"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-eef-green text-eef-base rounded-full text-lg md:text-xl font-medium hover:bg-eef-purple hover:text-white transition-all hover:scale-105 shadow-lg"
+        >
+          Se fjorårets program 2025
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -511,5 +515,6 @@
   <script src="./js/hero-animation.js"></script>
   <script src="./js/lightbox.js"></script>
   <script src="./js/ical-generator.js"></script>
+  <script src="./js/logo-scroll.js"></script>
 </body>
 </html>
