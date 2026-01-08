@@ -89,7 +89,7 @@ RewriteRule ^(.*)$ $1.html [L]
 
   # Content Security Policy (CSP)
   # Protects against XSS and data injection attacks
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+  Header always set Content-Security-Policy "default-src 'self' blob:; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
 
   # HTTP Strict Transport Security (HSTS)
   # Forces HTTPS connections - Start with 5 minutes for testing
