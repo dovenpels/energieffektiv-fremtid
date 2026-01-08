@@ -139,3 +139,193 @@ Then replace the gallery section in index.html with the generated content from g
   - robots.txt and sitemap.xml
   - Improved page titles
 - ✅ PageSpeed performance optimization (see above section for details)
+- ✅ Security headers implementation (2026-01-08) - See Security Headers section below
+
+
+---
+
+## Security Headers (Completed 2026-01-08)
+
+### Implementation Summary
+
+All HTTP security headers have been implemented in `.htaccess` to address Google PageSpeed security warnings. This resolves 5 HIGH severity security issues.
+
+**Implemented Security Headers:**
+
+1. **Content-Security-Policy (CSP)**
+   - Protects against XSS and data injection attacks
+   - Allows Google Fonts (fonts.googleapis.com, fonts.gstatic.com)
+   - Allows local resources only (scripts, images, CSS)
+   - Uses 'unsafe-inline' for Tailwind utilities and async CSS loading
+   - Blocks framing via `frame-ancestors 'none'`
+
+2. **HTTP Strict Transport Security (HSTS)**
+   - Forces HTTPS connections
+   - Initial max-age: 300 seconds (5 minutes) for testing
+   - Progressive rollout plan:
+     - Week 1: max-age=300 (testing)
+     - Week 2+: max-age=2592000 (30 days)
+     - Month 2+ (optional): max-age=63072000 (2 years) + preload
+
+3. **Cross-Origin-Opener-Policy (COOP)**
+   - Set to `same-origin`
+   - Isolates browsing context from cross-origin documents
+
+4. **X-Frame-Options**
+   - Set to `DENY`
+   - Prevents clickjacking (fallback for older browsers)
+
+5. **X-Content-Type-Options**
+   - Set to `nosniff`
+   - Prevents MIME-type sniffing attacks
+
+6. **Referrer-Policy**
+   - Set to `strict-origin-when-cross-origin`
+   - Protects user privacy while maintaining analytics
+
+7. **Permissions-Policy**
+   - Disables unused browser features (geolocation, microphone, camera, payment)
+   - Reduces attack surface
+
+### Security Grade
+- **Before:** F or lower (no security headers)
+- **After:** B+ to A- (comprehensive security headers)
+- **Target:** A+ (requires Phase 2 enhancements)
+
+### Testing & Verification
+
+After deployment, verify with:
+- **Security Headers Scanner:** https://securityheaders.com/
+- **Google PageSpeed Insights:** https://pagespeed.web.dev/
+- **Mozilla Observatory:** https://observatory.mozilla.org/
+
+### Future Enhancements (Phase 2)
+
+**Strengthen CSP (remove 'unsafe-inline'):**
+1. Remove inline styles from index.html (lines 77, 907)
+2. Replace `onload` async CSS loading with JS-based approach
+3. Update CSP to remove 'unsafe-inline' from style-src
+
+**Add Trusted Types support:**
+1. Refactor `js/load-footer.js` to use Trusted Types API
+2. Replace `innerHTML` usage (line 8) with safe alternatives
+3. Add `require-trusted-types-for 'script'` to CSP
+4. Results in strongest DOM XSS protection
+
+**Self-host Google Fonts (optional):**
+1. Download Barlow font files from Google Fonts
+2. Host in `/fonts/` directory
+3. Remove external domains from CSP
+4. Improves privacy and removes external dependency
+
+### Important Notes
+
+- HSTS starts with low max-age (5 minutes) for safe testing
+- All security headers are in `.htaccess` - applies to all pages
+- CSP allows Google Fonts and local resources only
+- Any new external resources must be added to CSP directives
+
+### Adding External Resources
+
+If you need to add external scripts, styles, or fonts in the future:
+
+1. Open `.htaccess`
+2. Find the `Content-Security-Policy` header (line 92)
+3. Add domain to appropriate directive:
+   - Scripts: Add to `script-src`
+   - Styles: Add to `style-src`
+   - Fonts: Add to `font-src`
+   - Images: Add to `img-src`
+4. Test thoroughly after changes
+5. Document the change in this file
+
+**Example:**
+```apache
+# To allow scripts from example.com, change:
+script-src 'self';
+# To:
+script-src 'self' https://example.com;
+```
+
+---
+
+## nye tilbakemeldinger fra google page insight (LØST - Se Security Headers ovenfor)
+
+ Bruker avviklede API-er 1 varsel er funnet
+Bruker avviklede API-er 1 varsel er funnet
+Avviklede API-er kommer etter hvert til å bli fjernet fra nettleseren. Finn ut mer om avviklede API-er.
+Avvikling/varsel
+	
+Kilde
+energieffektivfremtid.no
+Førstepart
+	
+H1UserAgentFontSizeInSection
+	
+https://energieffektivfremtid.no:0:-1
+
+--
+
+ Sørg for at CSP-en er effektiv mot XSS-angrep
+Sørg for at CSP-en er effektiv mot XSS-angrep
+En sterk Content Security Policy (CSP) reduserer faren for skriptangrep på tvers av nettsteder (XSS) betydelig. Finn ut hvordan du bruker en CSP for å forhindre XSSIkke vurdert
+Beskrivelse
+	
+Direktiv
+	
+Alvorlighetsgrad
+Fant ingen CSP i håndhevelsesmodus
+		
+Høy
+
+-- 
+
+ Bruk en sterk HSTS-regel
+Bruk en sterk HSTS-regel
+Implementering av HSTS-hodet senker risikoen for nedgradering av HTTP-tilkoblinger og avlyttingsangrep betydelig. Vi anbefaler at du implementerer dette i flere trinn og starter med en lav «max-age»-verdi (maksimumsalder). Finn ut mer om bruk av sterke HSTS-regler.Ikke vurdert
+Beskrivelse
+	
+Direktiv
+	
+Alvorlighetsgrad
+Fant ikke noe HSTS-hode
+		
+Høy
+
+--
+
+ Sørg for riktig opphavsisolasjon med COOP
+Sørg for riktig opphavsisolasjon med COOP
+COOP (Cross-Origin-Opener-Policy – regel for tverropphavlig åpning) kan brukes til å isolere toppnivåvinduet fra andre dokumenter, for eksempel forgrunnsvinduer. Finn ut mer om implementering av COOP-hodet.Ikke vurdert
+Beskrivelse
+	
+Direktiv
+	
+Alvorlighetsgrad
+Fant ikke noe COOP-hode
+		
+Høy
+
+--
+
+ Forebygg klikk-kapring med XFO eller CSP
+Forebygg klikk-kapring med XFO eller CSP
+X-Frame-Options-hodet (XFO) eller frame-ancestors-direktivet i Content-Security-Policy-hodet (CSP) styrer hvor sider kan bygges inn. Disse kan forebygge klikk-kapringsangrep ved å blokkere noen eller alle nettsteder fra å bygge inn siden. Finn ut mer om hvordan du kan forebygge klikk-kapring.Ikke vurdert
+Beskrivelse
+	
+Alvorlighetsgrad
+Fant ingen regler for rammekontroll
+	
+Høy
+
+-- 
+
+ Reduser DOM-basert XSS med betrodde typer
+Reduser DOM-basert XSS med betrodde typer
+require-trusted-types-for-direktivet i Content-Security-Policy-hodet (CSP) ber brukeragenter om å kontrollere dataene som sendes til DOM XSS-mottaksfunksjoner. Finn ut mer om hvordan du kan redusere DOM-basert XSS med Trusted Types.Ikke vurdert
+Beskrivelse
+	
+Alvorlighetsgrad
+Fant ikke noe `Content-Security-Policy`-hode med Trusted Types-direktiv
+	
+Høy

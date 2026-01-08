@@ -82,4 +82,37 @@ RewriteRule ^(.*)$ $1.html [L]
   <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "max-age=3600, public, must-revalidate"
   </FilesMatch>
+
+  # ============================================================
+  # SECURITY HEADERS
+  # ============================================================
+
+  # Content Security Policy (CSP)
+  # Protects against XSS and data injection attacks
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+
+  # HTTP Strict Transport Security (HSTS)
+  # Forces HTTPS connections - Start with 5 minutes for testing
+  # After testing, increase max-age to 31536000 (1 year)
+  Header always set Strict-Transport-Security "max-age=300; includeSubDomains"
+
+  # Cross-Origin-Opener-Policy (COOP)
+  # Isolates browsing context for better security
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # X-Frame-Options (Clickjacking protection - fallback for older browsers)
+  # CSP frame-ancestors is preferred, but this provides backward compatibility
+  Header always set X-Frame-Options "DENY"
+
+  # X-Content-Type-Options
+  # Prevents MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Referrer Policy
+  # Controls referrer information sent with requests
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Permissions Policy (Feature Policy)
+  # Disables unused browser features
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
 </IfModule>
